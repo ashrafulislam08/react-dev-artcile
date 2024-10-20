@@ -1,10 +1,9 @@
 import { FaRegBookmark } from "react-icons/fa";
 
-export const Blog = ({ blog }) => {
-  console.log(blog);
+export const Blog = ({ blog, handleBookmark }) => {
   return (
-    <div className="border rounded-xl p-2 mb-2">
-      <img className="rounded-xl w-full" src={blog.cover} alt="" />
+    <div className="border rounded-xl p-5 mb-2">
+      <img className="rounded-xl w-full mb-3" src={blog.cover} alt="" />
       <div className="flex items-center justify-between">
         {/* Author Details */}
         <div className="flex items-center gap-2 my-2">
@@ -25,11 +24,20 @@ export const Blog = ({ blog }) => {
               : "0" + blog.reading_time}{" "}
             min read
           </p>
-          <FaRegBookmark />
+          <FaRegBookmark
+            className="font-bold text-lg"
+            onClick={() => handleBookmark(blog.title)}
+          />
         </div>
       </div>
-      <div>
-        <h1 className="font-semibold text-3xl">{blog.title}</h1>
+      <div className="my-3">
+        <h1 className="font-semibold text-3xl mb-3">{blog.title}</h1>
+        {blog.hashtags.map((tag, idx) => (
+          <p key={idx} className="font-semibold text-gray-500 inline m-2">
+            #{tag}
+          </p>
+        ))}
+        <p className="font-semibold text-violet-600 underline">Mark as Read</p>
       </div>
     </div>
   );
