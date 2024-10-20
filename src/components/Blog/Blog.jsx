@@ -25,7 +25,7 @@ export const Blog = ({ blog, handleBookmark, handleMarkAsReadTime }) => {
             min read
           </p>
           <FaRegBookmark
-            className="font-bold text-lg"
+            className="font-bold text-lg cursor-pointer"
             onClick={() => handleBookmark(blog.title)}
           />
         </div>
@@ -39,7 +39,7 @@ export const Blog = ({ blog, handleBookmark, handleMarkAsReadTime }) => {
         ))}
         <p
           onClick={() => handleMarkAsReadTime(blog.reading_time)}
-          className="font-semibold text-violet-600 underline"
+          className="font-semibold text-violet-600 underline cursor-pointer"
         >
           Mark as Read
         </p>
